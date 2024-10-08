@@ -11,6 +11,7 @@ public:
     float getArea();
     void setArea(float area1);
     virtual void calculateArea() = 0;
-    void show();
+    virtual void show();
+    virtual void calculateCircumference() = 0;
 };
 #endif // FIGURE_H_INCLUDED

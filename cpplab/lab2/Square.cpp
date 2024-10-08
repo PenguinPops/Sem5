@@ -16,3 +16,14 @@ void Square::calculateArea()
     float p = a * a;
     setArea(p);
 }
+
+void Square::show()
+{
+    cout << "Show w klasie Square, pole: " << getArea() << endl;
+}
+
+void Square::calculateCircumference()
+{
+    float o = 4 * a;
+    cout << "Obwód kwadratu: " << o << endl;
+}

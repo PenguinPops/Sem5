@@ -16,3 +16,9 @@ void Circle::calculateArea()
     float p = 3.14 * r * r;
     setArea(p);
 }
+
+void Circle::calculateCircumference()
+{
+    float o = 2 * 3.14 * r;
+    cout << "Obwód koła: " << o << endl;
+}
