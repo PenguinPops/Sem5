@@ -4,5 +4,8 @@
 			"path": "."
 		}
 	],
-	"settings": {}
+	"settings": {
+		"lldb.library": "/usr/libexec/swift/6.0/lib/liblldb.so",
+		"lldb.launch.expressions": "native"
+	}
 }
