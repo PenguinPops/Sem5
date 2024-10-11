@@ -53,27 +53,34 @@ int main()
     // }
     // delete[] p4;
 
-    Student s1[3];
-    Student *s2;
-    Student *s3[3];
-    Student **s4;
+    Student s1[3]; //statyczna tablica statycznych obiektow
+    Student *s2; //dynamiczna tablica statycznych obiektow
+    Student *s3[3]; //statyczna tablica dynamicznych obiektow
+    Student **s4; //dynamiczna tablica dynamicznych obiektow
 
+    //statyczna tablica statycznych obiektow
     for (int i = 0; i < 3; i++)
     {
         s1[i].init("Anna", "Nowak", 20 + i);
         s1[i].setIndex("1234" + to_string(i));
         s1[i].showInfoStudent();
     }
+
+    //dynamiczna tablica statycznych obiektow
     s2 = new Student[3];
     for(int i = 0; i < 3; i++) {
         s2[i].init("Ola", "Adamek", 20 + i);
         s2[i].setIndex("1234" + to_string(i));
         s2[i].showInfoStudent();
     }
+
+    //statyczna tablica dynamicznych obiektow
     for(int i = 0; i < 3; i++) {
         s3[i] = new Student("Kasia", "Kowalska", 20 + i, "1234" + to_string(i));
         s3[i]->showInfoStudent();
     }
+
+    //dynamiczna tablica dynamicznych obiektow
     s4 = new Student *[3];
     for(int i = 0; i < 3; i++) {
         s4[i] = new Student("Pawel", "Wojcik", 20 + i, "1234" + to_string(i));
