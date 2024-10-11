@@ -1,0 +1,74 @@
+Laboratorium 2 Sieci Rozproszone
+
+Zad 1
+d. >
+e. użytkownika
+
+Zad 2
+b. access-enable, access-profile, clear, connect, crypto, disable, disconnect, do-exec
+
+Zad 3
+b. zmienił się na # i to oznacza tryb uprzywilejowany
+
+Zad 4
+b. access-template, archive, beep, bfe, bulkstat, calendar, call-home, cns, configure, cts
+
+Zad 5
+a. 
+	enable
+	show history
+
+Zad 6
+c. Tryb uprzywilejowany ma dostęp do większej ilości możliwych odmian. Wiąże się to z wyższym poziomem użytkownika. Polecenie dostępne w trybie EXEC mają służyć jedynie jako podstawowe, ze względu na łatwy dostęp.
+
+Zad 7
+a.	MTU- maximum transmission unit
+	BW - bandwidth
+
+b. HDLC
+
+c. show protocols pokazuje tylko stan interfejsów, bez dodatkowych szczegółów.
+
+d.
+show version - pokazuje dane IOS i urządzenia
+show processes - pokazuje aktualne procesy
+show flash - pokazuje pliki pamięci flash
+show running-config - pokazuje aktualną konfigurację
+show startup-config - pokazuje konfigurację startową
+show interfaces - pokazuje interfejsy
+
+e.
+Jaka jest wersja systemu IOS? - 15.7(3)M8 RELEASE
+Jaka jest nazwa pliku z obrazem systemu - flash0:c2900-universalk9-mz.SPA.157-3.M8.bin
+Podaj typ procesora i wielkość RAM - Cisco CISCO2911/K9 rev 1.0 with 49152K bytes of memory
+Jaka jest liczba interfejsów Ethernet? - 3 GE
+Liczba interfejsów szeregowych - 2 Serial int
+Ilość NVRAM - 262136 bytes
+Ilość pamięci flash - 256487424 bytes
+
+Zad 9
+Hasło pojawia się przy próbie wejścia do konsoli routera, hasło można wyłączyć przeprowadzając reset routera
+
+Zad 10
+j. widać hash hasła
+
+Zad 11
+g. 	GigabitEthernet 0/0 is up, line protocol is up
+	Internet address is 10.0.0.1/24
+	...
+	
+	Router->PC ping
+	Success rate is 80 percent (4/5)
+	
+	PC->Router ping
+	Packets: Sent = 3, Recieved = 3, Lost = 0
+
+Kopiowanie do tftp
+	1477 bytes copied in 0.320 secs
+
+9.1. 	DTE to urządzenia Data Terminal Equipment, to np. komputery routery itp.
+	Ono generuje dane które ma przesłać przez sieć
+	DCE to urządzenie Data Circuit-terminating Equipment, które pośredniczy w transmisji danych różnych DTE
+	Przykład: modemy, przełączniki itp.
+
+9.2. service password-encryption, używa algorytmu cisco type 7, albo secret, które używa MD5
