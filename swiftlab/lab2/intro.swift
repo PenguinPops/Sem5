@@ -13,7 +13,7 @@ print(str2)
 var str3: String = "124"
 var n: Int? = Int(str3) //! znak zapytania obsługuje wyjątki typu "abc"
 
-print(n) //wyświetla optional(124)
+// print(n) //wyświetla optional(124)
 print(n!) //wyświetla 124
 
 var d = Int.random(in: 1..<10) // od 1 do 9

@@ -2,6 +2,9 @@
 #include <vector>
 #include <algorithm>
 #include <binders.h>
+#include "Even.h"
+#include "Compare.h"
+#include "Student.h"
 using namespace std;
 
 template <typename T>
@@ -11,6 +14,10 @@ void show(T &con)
          it != con.end(); it++)
         cout << *it << " ";
     cout << endl;
+}
+
+void showMark(Student &s) {
+    cout<<s.getMark()<<" ";
 }
 
 void print(int &el)
@@ -116,5 +123,23 @@ int main()
     for_each(num3.begin(), num3.end(), print);
     cout << endl;
 
+
+    for_each(num.begin(),num.end(),print);
+    cout<<endl;
+    cout<<count_if(num.begin(), num.end(), isEven)<<endl;
+    cout<<count_if(num.begin(),num.end(), Even(2))<<endl;
+    cout<<endl;
+    cout<<endl;
+    cout<<"Porównywanie studentów"<<endl;
+    vector<Student>st;
+    st.push_back(Student(1,"Ala"));
+    st.push_back(Student(5,"Ola"));
+    st.push_back(Student(2,"Piotr"));
+    for_each(st.begin(), st.end(), showMark);
+    cout<<endl;
+    sort(st.begin(), st.end(), Compare());
+    for_each(st.begin(), st.end(), showMark);
+    cout<<endl;
     return 0;
 }
+
