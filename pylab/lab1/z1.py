@@ -80,7 +80,7 @@ arr2 = np.array(DataFrame)
 print(arr2)
 
 #[[1 'imie1' 'nazwisko1' 11 123456]
-#  [2 'imie 2' 'nazwisko2' 12 78910]
+#  [2 'imie2' 'nazwisko2' 12 78910]
 #  [3 'imie3' 'nazwisko3' 13 34364]
 #  [4 'imie4' 'nazwisko4' 14 -10182]
 #  [5 'imie5' 'nazwisko5' 15 -54728]
