@@ -1,21 +1,21 @@
 let str1 = readLine();
 let str2 = readLine();
 
-if(str1 == str2) { print("Strings are the same") }
-else { print("Strings are different") }
+if(str1 == str2) { print("Ciągi są takie same") }
+else { print("Ciągi są różne") }
 
 let prefix = readLine();
 
-if(str1!.hasPrefix(prefix!)) { print("String 1 has this prefix") }
-else { print("String 1 doesnt have this prefix") }
+if(str1!.hasPrefix(prefix!)) { print("Ciąg 1 ma ten prefix") }
+else { print("Ciąg 1 nie ma tego prefixu") }
 
-if(str2!.hasPrefix(prefix!)) { print("String 2 has this prefix") }
-else { print("String 2 doesnt have this prefix") }
+if(str2!.hasPrefix(prefix!)) { print("Ciąg 2 ma ten prefix") }
+else { print("Ciąg 2 nie ma tego prefixu") }
 
 let suffix = readLine();
 
-if(str1!.hasSuffix(suffix!)) { print("String 1 has this prefix") }
-else { print("String 1 doesnt have this prefix") }
+if(str1!.hasSuffix(suffix!)) { print("Ciąg 1 ma ten suffix") }
+else { print("Ciąg 1 nie ma tego suffixu") }
 
-if(str2!.hasSuffix(suffix!)) { print("String 2 has this suffix") }
-else { print("String 2 doesnt have this suffix") }
+if(str2!.hasSuffix(suffix!)) { print("Ciąg 2 ma ten suffix") }
+else { print("Ciąg 2 nie ma tego suffixu") }

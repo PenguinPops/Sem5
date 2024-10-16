@@ -1,0 +1,64 @@
+swift zad3_1.swift
+Hello
+Hello
+World
+
+swift zad3_2.swift
+
+        Nauka kodowania to nie tylko nauka języka technologii.
+
+        To odkrywanie nowych sposobów myślenia
+
+        i urzeczywistnianie rozmaitych koncepcji.
+
+
+swift zad3_3.swift
+Adrian
+Radosław
+Dziewa
+2005
+Imię: Adrian
+Drugie imię: Radosław
+Nazwisko: Dziewa
+Rok urodzenia: 2005
+Imię: Adrian
+Nazwisko: Dziewa
+Rok urodzenia: 2005
+Imię: Adrian
+Drugie imię: Radosław
+Nazwisko: Dziewa
+Wiek: 19
+Imię nie zaczyna się od litery 'D'
+
+swift zad3_4.swift
+Podaj ciąg znaków
+oafufdahfif
+Podaj znak
+f
+Podaj liczbę całkowitą
+2
+Znak znajduje się na końcu ciągu
+Znak znajduje się na indeksie oddalonym o 2 od początku ciągu
+Znak znajduje się na indeksie oddalonym o 2 od końca ciągu
+
+swift zad3_5.swift
+Ala ma kota
+ala ma kota
+Ciągi są różne
+ala
+Ciąg 1 nie ma tego prefixu
+Ciąg 2 ma ten prefix
+kota
+Ciąg 1 ma ten suffix
+Ciąg 2 ma ten suffix
+
+swift zad3_6.swift
+Podaj wymiary prostokąta
+3
+4
+Obwód prostokąta wynosi 14, a pole prostokąta wynosi 12
+
+swift zad3_7.swift
+Podaj kwote w PLN
+12
+Wynik w dolarach: 3.08$
