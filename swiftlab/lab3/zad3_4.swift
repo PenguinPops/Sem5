@@ -10,7 +10,7 @@ print("Podaj liczbę całkowitą")
 let liczba: Int = Int(readLine()!)!
 
 var test: Bool = false;
-
+                 
 if(ciag.first == znak) {
     print("Znak znajduje się na początku ciągu")
     test = true
