@@ -15,11 +15,11 @@ class Citizen {
         Citizen();
         Citizen(string name, string surname, int age, char sex, string postal_code);
         void show();
-        string getName();
-        string getSurname();
+        string getName() const;
+        string getSurname() const;
         int getAge();
         char getSex();
         string getPostalCode();
 };
 
-#endif CITIZEN_H_INCLUDED
+#endif //CITIZEN_H_INCLUDED
