@@ -1,0 +1,46 @@
+swift zad4_1.swift
+Podaj rok
+1900
+Rok nie jest przestępny
+Podaj rok
+2000
+Rok jest przestępny
+
+swift zad4_2.swift
+Podaj rok z zakresu <2,3010>
+1900
+Rok 1900 to wiek XIX
+
+swift zad4_3.swift
+Podaj średnią ze studiów
+3.5
+Stypendium wynosi 100 zł
+Podaj średnią ze studiów
+4.0
+Stypendium wynosi 150 zł
+Podaj średnią ze studiów
+4.5
+Stypendium wynosi 200 zł
+
+swift zad4_4.swift
+Wczytaj 2 liczby całkowite
+4
+3
+1-dodawanie, 2-odejmowanie, 3-mnożenie, 4-dzielenie
+3
+Wynik mnożenia: 12
+
+swift zad4_5.swift
+Podaj kod pocztowy:
+22100
+Województwo Lubelskie
+
+swift zad4_6.swift
+Podaj znak
+t
+Podany znak to spółgłoska
+
+swift zad4_7.swift
+Podaj PESEL:
+01010101010
+Podany PESEL reprezentuje mężczyznę

@@ -1,5 +1,3 @@
-//Napisz program, który wczyta znak z klawiatury i określi, czy jest to
-// samogłoska, spółgłoska, cyfra, czy inny znak. Zastosuj instrukcję switch.
 
 print("Podaj znak")
 let char = readLine()!

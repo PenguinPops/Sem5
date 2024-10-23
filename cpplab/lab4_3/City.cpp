@@ -8,8 +8,6 @@ void City::addCitizen(Citizen c) {
     citizens.push_back(c);
 }
 
-#include <algorithm> // Include the <algorithm> header for find_if
-
 void City::deleteCitizen(const string& name, const string& surname) {
     auto it = find_if(citizens.begin(), citizens.end(), [&](const Citizen& citizen) {
         return citizen.getName() == name && citizen.getSurname() == surname;
@@ -26,8 +24,8 @@ void City::deleteCitizen(const string& name, const string& surname) {
 
 void City::show_citizens() {
     cout << "List of citizens:" << endl;
-    for (auto& citizen : citizens) {
-        citizen.show();
+    for (auto& e : citizens) {
+        e.show();
     }
 }
 
@@ -74,7 +72,7 @@ int City::postal_codes() {
         cout << pair.first << " -> " << pair.second << " citizens" << endl;
     }
     
-    return postalCodeMap.size();  // Return the number of unique postal codes
+    return postalCodeMap.size(); 
 }
 
 

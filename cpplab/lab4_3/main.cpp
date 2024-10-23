@@ -1,7 +1,6 @@
 #include <iostream>
 #include <algorithm>
 #include <climits>
-
 #include "City.h"
 #include "Citizen.h"
 

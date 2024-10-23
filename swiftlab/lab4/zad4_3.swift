@@ -1,7 +1,9 @@
 print("Podaj średnią ze studiów")
-let average = Double(readLine()!)!
+guard let average = Double(readLine()!) else {
+    fatalError("To nie jest liczba zmiennoprzecinkowa")
+}
 switch average {
-    case 0 ..< 3.0:
+    case 2.0 ..< 3.0:
         print("Stypendium wynosi 0")
     case 3.0 ..< 4.0:
         print("Stypendium wynosi 100 zł")
