@@ -6,8 +6,6 @@
 
 using namespace std;
 
-//use algorithm and lambda
-
 void eraseNegative(vector<int>& v) {
     v.erase(remove_if(v.begin(), v.end(), [](int i) {
         return i < 0;

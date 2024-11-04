@@ -62,11 +62,30 @@ void alt_wykl(const set<T1> &s1, const set<T2> &s2)
     show(sDiffer); // Wyświetlanie różnicy
 }
 
+template <typename T1, typename T2>
+double alt_wykl2(const set<T1> &s1, const set<T2> &s2) 
+{
+    double sum = 0;
+    set<double> sDiffer;
+    pair<set<double>::iterator, bool> r;
+    for(const auto &e : s1) {
+        r = sDiffer.insert(e);
+        if(r.second) sum+=e;
+    }
+    for(const auto &e : s2) {
+        r = sDiffer.insert(e);
+        if(!r.second) { sDiffer.erase(e); sum-=e; };
+        if(r.second) sum+=e;
+    }
+    return sum;
+}
+
+
 pair<int, int> duplikat(vector<int> &v)
 {
     set<int> s;
-    pair<set<int>::iterator, bool> res; // Poprawienie typu pary: bool zamiast int
-    res.second = true;                  // Inicjacja jako true
+    pair<set<int>::iterator, bool> res; // Iterator i flaga
+    res.second = true;                  // Inicjalizacja flagi
     while (res.second && !v.empty())
     {
         res = s.insert(v.back()); // Dodanie elementu z końca wektora
@@ -107,12 +126,17 @@ int main()
     cout << "Wartość powtórzona: " << d.first << ", Suma elementów unikalnych: " << d.second << endl;
     cout << endl
          << "Zadanie 5.2" << endl;
-    set<int> s1 = {1, 2, 3, 4, 5};
-    set<string> s2 = {"1", "3", "A", "B", "Ania"};
-    show(s1);
-    show(s2);
-    cout << "Tylko w pierwszym zbiorze: " << endl;
-    alt_wykl(s1, s2);
+    // set<int> s1 = {1, 2, 3, 4, 5};
+    // set<string> s2 = {"1", "3", "A", "B", "Ania"};
+    // show(s1);
+    // show(s2);
+    // cout << "Tylko w pierwszym zbiorze: " << endl;
+    // alt_wykl(s1, s2);
+
+    set<int> s3 = {1, 2, 3};
+    set<int> s4 = {3, 4, 5};
+    double a = alt_wykl2(s3, s4);
+    cout << "Suma elementów unikatowych tylko ze zbioru jednego albo drugiego: " << a << endl;
 
     string str1 = "aabc";
     string str2 = "cadab";

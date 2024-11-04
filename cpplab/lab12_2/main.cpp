@@ -16,7 +16,7 @@ void showSortedByYear(vector<Car>& cars) {
         return get<1>(t1).getProdYear() > get<1>(t2).getProdYear();
     });
     for(auto& t : sortedCars) {
-        cout<<"Samochód "<<get<0>(t)<<":"<<endl;
+        cout<<"Car "<<get<0>(t)<<":"<<endl;
         get<1>(t).show();
     }
 }
@@ -32,7 +32,7 @@ void showSortedByCapacity(vector<Car>& cars) {
         return get<1>(t1).getEngineCapacity() > get<1>(t2).getEngineCapacity();
     });
     for(auto& t : sortedCars) {
-        cout<<"Samochód "<<get<0>(t)<<":"<<endl;
+        cout<<"Car "<<get<0>(t)<<":"<<endl;
         get<1>(t).show();
     }
 }

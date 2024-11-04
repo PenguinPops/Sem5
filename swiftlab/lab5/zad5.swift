@@ -17,6 +17,8 @@ repeat {
 } while x != 26
 print()
 
+// -----------------------------------------------------
+
 print("Zadanie 2")
 for x in stride(from: 1, to: 26, by: 3) {
     print(x, terminator: " ")
@@ -35,9 +37,11 @@ repeat {
 } while x < 26
 print()
 
+// -----------------------------------------------------
+
 print("Zadanie 3")
-print("Wprowadź liczbę: ", terminator: "")
-let licz = Int(readLine()!)!
+print("Wprowadź liczbę kończącą ciąg fibonacciego: ", terminator: "")
+guard let licz = Int(readLine()!) else { fatalError("Nieprawidłowa wartość") }
 var a = 0
 var b = 1
 var c = 0
@@ -49,35 +53,53 @@ while a <= licz {
 }
 print()
 
-print("Zadanie 4") 
-print("Wprowadź liczbę: ", terminator: "")
-let licz2 = Int(readLine()!)!
-var pierw = false
-x = 2
-while x < licz2/2 {
-    if licz2 % x != 0 {
-        pierw = true
+// -----------------------------------------------------
+
+print("Zadanie 4")
+print("Wprowadź liczbę aby sprawdzić czy jest pierwsza: ", terminator: "")
+guard let licz2 = Int(readLine()!) else { fatalError("Nieprawidłowa wartość") }
+var isPrime = true
+if licz2 <= 1 {
+    isPrime = false
+} else {
+    var x = 2
+    let y = Int(Double(licz2).squareRoot())
+    while x <= y {
+        if licz2 % x == 0 {
+            isPrime = false
+            break
+        }
+        x += 1
     }
-    x += 1
 }
-if pierw {
+if isPrime {
     print("Liczba jest pierwsza")
 } else {
     print("Liczba nie jest pierwsza")
 }
 print()
 
+// -----------------------------------------------------
+
 print("Zadanie 5")
-repeat{
-    print("Wcztaj liczbe trzycyfrową: ", terminator: "")
-    x = Int(readLine()!)!
-} while x > 999 || x < 100
+repeat {
+    print("Wczytaj liczbe trzycyfrową: ", terminator: "")
+    guard let input = readLine(), let number = Int(input), number >= 100, number <= 999 else {
+        print("Nieprawidłowa wartość, spróbuj ponownie.")
+        continue
+    }
+    x = number
+    break
+} while true
 var suma = 0
 while x > 0 {
     suma += x % 10
     x /= 10
 }
 print("Suma cyfr liczby wynosi: \(suma)")
+print()
+
+// -----------------------------------------------------
 
 print("Zadanie 6")
 print("Wprowadź ciąg znaków do sprawdzenia czy jest palindromem: ", terminator: "")
@@ -94,6 +116,8 @@ if pal {
     print("Ciąg znaków nie jest palindromem")
 }
 print()
+
+// -----------------------------------------------------
 
 print("Zadanie 7")
 var sum = 0
