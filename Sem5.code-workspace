@@ -9,7 +9,8 @@
 		"lldb.launch.expressions": "native",
 		"files.associations": {
 			"*.embeddedhtml": "html",
-			"iostream": "cpp"
+			"iostream": "cpp",
+			"functional": "cpp"
 		}
 	}
 }
