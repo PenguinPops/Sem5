@@ -4,7 +4,9 @@
             "name": "Linux",
             "includePath": [
                 "${workspaceFolder}/**",
-                "/usr/local/include/boost"
+                "/usr/local/include/boost",
+                "/usr/include/qt5",
+                "/usr/include/qt5/QtCore"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/gcc",
