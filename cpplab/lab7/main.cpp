@@ -1,8 +1,22 @@
-#include <boost/bind.hpp>
+#include <boost/bind/bind.hpp>
 #include <QCoreApplication>
+#include <qmap.h>
 #include <iostream>
 #include <QVector>
 using namespace std;
+using namespace boost::placeholders;
+
+class Compare
+{
+public:
+    bool operator()(int s1, int s2)
+    {
+        if (s1 % 2 > s2 % 2)
+            return true;
+        else
+            return false;
+    }
+};
 
 template <typename T>
 void show(QVector<T> vec)
@@ -52,5 +66,48 @@ int main(int argc, char *argv[])
     vec.move(1, vec.length() - 1);
     vec.remove(3);
     show(vec);
-    return a.exec();
+
+    QMap<int, QString> shops;
+    shops[111] = "CCC";
+    shops[222] = "Decathlon";
+    shops.insert(333, "Reserved");
+    QMapIterator<int, QString> j(shops);
+    while (j.hasNext())
+    {
+        j.next();
+        cout << "Id: " << j.key() << " sklep: "
+             << j.value().toStdString() << endl;
+    }
+    cout << endl
+         << "Zawartosc vec: ";
+    QVectorIterator<int> it(vec);
+    while (it.hasNext())
+        cout << it.next() << " ";
+    cout << endl;
+    QMutableVectorIterator<int> itM(vec);
+    // while (itM.hasNext())
+    // {
+    //     itM.next();
+    //     itM.setValue(-1);
+    // }
+    itM.toFront();
+    cout << endl
+         << "Zawartosc vec: ";
+    while (itM.hasNext())
+        cout << itM.next() << " ";
+
+    show(vec);
+    int howMany = 0;
+    qCount(vec.begin(), vec.end(), 2, howMany);
+    cout << "Liczba wystapien 2: " << howMany << endl;
+    QVector<int>::iterator it2 = qFind(vec.begin(),
+                                       vec.end(), -2);
+    if (it2 == vec.end())
+        cout << "Element nie zostal znaleziony" << endl;
+    qSort(vec.begin(), vec.end(), qGreater<int>());
+    show(vec);
+    qSort(vec.begin(), vec.end(), Compare());
+    show(vec);
+
+    return 0;
 }

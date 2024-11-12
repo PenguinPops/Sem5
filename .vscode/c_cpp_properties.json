@@ -6,7 +6,8 @@
                 "${workspaceFolder}/**",
                 "/usr/local/include/boost",
                 "/usr/include/qt5",
-                "/usr/include/qt5/QtCore"
+                "/usr/include/qt5/QtCore",
+                "/usr/include/qt5/QtWidgets"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/gcc",
