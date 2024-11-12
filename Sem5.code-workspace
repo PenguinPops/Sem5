@@ -5,7 +5,7 @@
 		}
 	],
 	"settings": {
-		"lldb.library": "/usr/libexec/swift/6.0/lib/liblldb.so",
+		"lldb.library": "/usr/libexec/swift/6.0.1/lib/liblldb.so",
 		"lldb.launch.expressions": "native",
 		"files.associations": {
 			"*.embeddedhtml": "html",
