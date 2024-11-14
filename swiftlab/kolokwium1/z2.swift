@@ -96,7 +96,7 @@
 // }
 // print("Rok \(year) to wiek \(rzymska)");
 
-let srednia = 4.5;
+let srednia = 4.54818724;
 switch(srednia) {
     case 0 ..< 3.0:
         print("0");
@@ -109,3 +109,6 @@ switch(srednia) {
     default:
         print("Źle")
 }
+import Foundation
+print(srednia);
+print(String(format:"%.2lf", srednia));
