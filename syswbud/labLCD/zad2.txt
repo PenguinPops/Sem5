@@ -1,0 +1,123 @@
+
+#define F_CPU 1000000L
+#include <avr/io.h>
+#include <util/delay.h>
+#include <string.h>
+#define LCD_DDR DDRB
+#define LCD_PORT PORTB
+#define LCD_RS 2
+#define LCD_EN 3
+#define LCD_DB4 4
+#define LCD_DB5 5
+#define LCD_DB6 6
+#define LCD_DB7 7
+
+void wypisz(uint8_t b) {
+LCD_PORT |= _BV(LCD_EN); // włączenie linii ENABLE
+LCD_PORT = (b & 0xF0)|(LCD_PORT & 0x0F); // wysłanie 4 starszych bitów
+LCD_PORT &= ~(_BV(LCD_EN)); // potwierdzenie wysłania danych, opadnięcie ENABLE
+asm volatile("nop"); // odczekanie 1 cyklu
+LCD_PORT |= _BV(LCD_EN);
+LCD_PORT = ((b & 0x0F)<<4)|(LCD_PORT & 0x0F); // wysłanie 4 młodszych bitów
+LCD_PORT &= ~(_BV(LCD_EN));
+_delay_ms(50);
+}
+
+void LCD_clear() {
+LCD_PORT &= ~(_BV(LCD_RS)); // ustawienie RS = 0 dla komendy czyszczenia
+wypisz(0x01); // komenda czyszczenia ekranu
+LCD_PORT |= _BV(LCD_RS); // ustawienie RS = 1 dla danych
+_delay_ms(60);
+}
+
+void inicjalizacjaLCD() {
+LCD_DDR = (0xf0) | (_BV(LCD_RS)) | (_BV(LCD_EN));
+_delay_ms(50); // Opóźnienie po starcie
+LCD_PORT &= ~(_BV(LCD_RS)); // RS = 0 dla komend
+
+wypisz(0x33); // Tryb 4-bitowy, wysyłany dwa razy
+_delay_ms(5);
+wypisz(0x32);
+_delay_ms(5);
+
+wypisz(0x28); // Ustawienie trybu 4-bitowego
+wypisz(0x0C); // Włączenie wyświetlacza, wyłączenie kursora
+wypisz(0x06); // Automatyczne przesuwanie kursora
+LCD_clear(); // Wyczyść ekran
+
+LCD_PORT |= _BV(LCD_RS); // RS = 1 dla danych
+}
+
+void ustawKursor(unsigned char w, unsigned char h) {
+LCD_PORT &=~(_BV(LCD_RS)); // RS = 0 dla komend
+wypisz((w * 0x40 + h) | 0x80); // Ustaw pozycję kursora
+LCD_PORT |= _BV(LCD_RS); // RS = 1 dla danych
+_delay_ms(5);
+}
+
+void napisz(char *tekst, int8_t dlugosc) {
+uint8_t i = 0;
+ustawKursor(0, 0); // Ustawienie kursora na początek
+while (i < dlugosc) {
+if (i == 16) {
+ustawKursor(1, 0); // Ustawienie kursora na początek drugiego wiersza
+}
+wypisz(tekst[i]);
+i++;
+}
+}
+
+void napiszLinie(char *tekst, int8_t dlugosc, unsigned char w) {
+uint8_t i = 0;
+ustawKursor(w, 0); // Ustawienie kursora na początek wiersza
+if (dlugosc < 16) {
+while (i < dlugosc) {
+wypisz(tekst[i]);
+i++;
+}
+}
+}
+
+#define KEYPAD_DDR DDRA
+#define KEYPAD_PORT PORTA
+#define KEYPAD_PIN PINA
+
+uint8_t czytajMalaKlawiature() {
+KEYPAD_DDR = 0x00;
+KEYPAD_PORT = 0xFF;
+uint8_t odczyt = 0;
+_delay_ms(5);
+odczyt = (0xF0 | KEYPAD_PIN);
+switch(odczyt) {
+case 0b11110111: return 1;
+case 0b11111011: return 2;
+case 0b11111101: return 3;
+case 0b11111110: return 4;
+default: return 0;
+}
+return 0;
+}
+
+void zad2() {
+char name[] = "Kowalski J.";
+uint8_t button;
+
+napiszLinie(name, 11, 0); // Wyświetla imię i nazwisko
+
+while (1) {
+button = czytajMalaKlawiature();
+if (button != 0) {
+ustawKursor(1, 0);
+napiszLinie("Wiersz nr: ", 11, 1);
+wypisz(button + '0'); // wyswietl przycisk
+}
+_delay_ms(500);
+}
+}
+
+int main(void) {
+inicjalizacjaLCD();
+zad2(); 
+while (1) {
+}
+}
