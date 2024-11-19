@@ -10,7 +10,9 @@
 		"files.associations": {
 			"*.embeddedhtml": "html",
 			"iostream": "cpp",
-			"functional": "cpp"
+			"functional": "cpp",
+			"chrono": "cpp",
+			"qcoreapplication": "cpp"
 		}
 	}
 }
