@@ -28,5 +28,5 @@ int main(int argc, char *argv[]) {
     tekst = "The quick brown fox jumps over the hazy dog";
     cout << tekst.toStdString() << endl;
     cout << "Czy tekst jest pangramem? " << (czyPangram(tekst) ? "Tak" : "Nie") << endl;
-    return a.exec();
+    return 0;
 }

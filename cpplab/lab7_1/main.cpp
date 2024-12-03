@@ -115,5 +115,5 @@ int main(int argc, char* argv[]) {
     // Wyświetlenie samochodów w kolejności rosnącej względem marki
     katalog.wyswietlRosnacoMarka();
 
-    return a.exec();
+    return 0;
 }

@@ -121,5 +121,5 @@ int main(int argc, char *argv[]) {
     katalog.wyswietlKrajeZLudnoscia();
     katalog.posortujKrajeWgLudnosci("rosnaco");
     katalog.posortujKrajeWgLudnosci("malejaco");
-    return a.exec();
+    return 0;
 }

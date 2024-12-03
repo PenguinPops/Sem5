@@ -12,7 +12,8 @@
 			"iostream": "cpp",
 			"functional": "cpp",
 			"chrono": "cpp",
-			"qcoreapplication": "cpp"
+			"qcoreapplication": "cpp",
+			"iosfwd": "cpp"
 		}
 	}
 }

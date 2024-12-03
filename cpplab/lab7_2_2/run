@@ -1,3 +1,7 @@
+#!/bin/bash
+
+# Create the Makefile each time
+cat << 'EOF' > Makefile
 # Compiler
 CXX = g++
 
@@ -26,3 +30,20 @@ run: $(TARGET)
 .PHONY: clean
 clean:
 	$(RM) $(TARGET)
+EOF
+
+# Build the target
+make
+
+# Run the program in the background
+./main &
+
+# Wait briefly and clean up
+wait
+
+# Clean up by removing both the executable and the Makefile
+make clean
+rm -f Makefile
+
+# Exit the script automatically
+exit 0
