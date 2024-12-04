@@ -111,3 +111,122 @@ print("Zależność pkt 1 co do okręgu:");
 sprawdzOkrag(x1, y1);
 print("Zależność pkt 2 co do okręgu:");
 sprawdzOkrag(x2, y2);
+
+// Zadanie 10.4
+
+// Polecenie 1. Napisz program konsolowy, który wczyta liczbę elementów tablicy oraz jej
+// elementy całkowite, a następnie wyznaczy największy element, najmniejszy element oraz
+// średnią arytmetyczną wszystkich elementów.
+
+print("Podaj liczbe elementow tablicy ", terminator: "")
+guard let wielkosc = Int(readLine()!), wielkosc > 0 else { fatalError("🐶") }
+
+var tablica: [Double] = []
+
+for _ in 0..<wielkosc {
+    print("Podaj element tablicy: ", terminator: "")
+    guard let element = Double(readLine()!) else { fatalError("🐶") }
+    tablica.append(element)
+}
+
+func najwiekszyElement(_ tablica: [Double]) -> Double {
+    return tablica.max()!
+}
+
+func najmniejszyElement(_ tablica: [Double]) -> Double {
+    return tablica.min()!
+}
+
+func sredniaArytmetyczna(_ tablica: [Double]) -> Double {
+    return tablica.reduce(0, +) / Double(tablica.count)
+}
+
+// Polecenie 2. Napisz funkcję, która wczyta elementy do tablicy i zwróci tą tablicę. Funkcja
+// powinna posiadać parametr mówiący o liczbie elementów tablicy.
+
+func wczytajTablice(_ wielkosc: Int) -> [Double] {
+    var tablica: [Double] = []
+
+    for _ in 0..<wielkosc {
+        print("Podaj element tablicy: ", terminator: "")
+        guard let element = Double(readLine()!) else { fatalError("🐶") }
+        tablica.append(element)
+    }
+
+    return tablica
+}
+
+// Polecenie 3. Napisz funkcję, która wyświetli wszystkie elementy tablicy.
+
+func wyswietlTablice(_ tablica: [Double]) {
+    print("Tablica: ", terminator: "")
+    print(tablica)
+}
+
+// Polecenie 4. Napisz funkcję, która wyznaczy i zwróci najmniejszy element tablicy oraz
+// indeks, na którym się znajduje.
+
+func najmniejszyElementZIndeksem(_ tablica: [Double]) -> (Double, Int) {
+    let minElement = tablica.min()!
+    let index = tablica.firstIndex(of: minElement)!
+    return (minElement, index)
+}
+
+// Polecenie 5. Napisz funkcję, która wyznaczy i zwróci największy element tablicy oraz indeks,
+// na którym się znajduje.
+
+func najwiekszyElementZIndeksem(_ tablica: [Double]) -> (Double, Int) {
+    let maxElement = tablica.max()!
+    let index = tablica.firstIndex(of: maxElement)!
+    return (maxElement, index)
+}
+
+// Polecenie 6. Napisz funkcję, która zamieni miejscami element największy z najmniejszym.
+
+func zamienMiejscamiNajwiekszyNajmniejszy(_ tablica: inout [Double]) {
+    let (minElement, minIndex) = najmniejszyElementZIndeksem(tablica)
+    let (maxElement, maxIndex) = najwiekszyElementZIndeksem(tablica)
+
+    tablica[minIndex] = maxElement
+    tablica[maxIndex] = minElement
+}
+
+// Polecenie 7. Napisz funkcję, która wyznaczy i zwróci średnią arytmetyczną wszystkich
+// elementów tablicy.
+
+func sredniaArytmetycznaTablicy(_ tablica: [Double]) -> Double {
+    return tablica.reduce(0, +) / Double(tablica.count)
+}
+
+// Polecenie 8. Przetestuj utworzone funkcje.
+
+print("Tablica: ", terminator: "")
+print(tablica)
+print("Największy element: ", terminator: "")
+print(najwiekszyElement(tablica))
+print("Najmniejszy element: ", terminator: "")
+print(najmniejszyElement(tablica))
+print("Średnia arytmetyczna: ", terminator: "")
+print(sredniaArytmetyczna(tablica))
+
+let tablica2 = wczytajTablice(wielkosc)
+wyswietlTablice(tablica2)
+
+let (minElement, minIndex) = najmniejszyElementZIndeksem(tablica2)
+print("Najmniejszy element: ", terminator: "")
+print(minElement)
+print("Indeks: ", terminator: "")
+print(minIndex)
+
+let (maxElement, maxIndex) = najwiekszyElementZIndeksem(tablica2)
+print("Największy element: ", terminator: "")
+print(maxElement)
+print("Indeks: ", terminator: "")
+print(maxIndex)
+
+zamienMiejscamiNajwiekszyNajmniejszy(&tablica2)
+print("Tablica po zamianie miejscami największego i najmniejszego elementu: ", terminator: "")
+print(tablica2)
+
+print("Średnia arytmetyczna tablicy: ", terminator: "")
+print(sredniaArytmetycznaTablicy(tablica2))
