@@ -23,13 +23,13 @@ func main() {
 func main2() {
     // read 3 numbers from user
     print("Please enter 3 integers:")
-    let number1 = readInteger() ?? 0
-    let number2 = readInteger() ?? 0
-    let number3 = readInteger() ?? 0
+    // let number1 = readInteger() ?? 0
+    // let number2 = readInteger() ?? 0
+    // let number3 = readInteger() ?? 0
     // calculate sum
-    let sum = number1 + number2 + number3
+    // let sum = number1 + number2 + number3
     // print sum
-    print("The sum of the numbers is \(sum).")
+    // print("The sum of the numbers is \(sum).")
     
 
 }
