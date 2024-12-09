@@ -1,0 +1,73 @@
+Upload the Configuration to the Real Router via Console Cable
+
+Once you have the configuration saved in a text file, you can upload it to the real router through a console cable. Here's how:
+Step 1: Connect the Real Router to Your PC Using a Console Cable
+
+    Connect one end of the console cable (usually a blue RJ-45 to DB9 or USB to RJ-45) to the console port of the real router.
+    Connect the other end of the console cable to your PC's serial port (or use a USB-to-serial adapter if needed).
+
+Step 2: Install Console Software (if not already installed)
+
+    Use terminal emulation software such as PuTTY, Tera Term, or HyperTerminal.
+    Ensure that your terminal software is set up to connect via the correct COM port (you can find the COM port in your PC's Device Manager if it's a USB-to-serial adapter).
+
+Step 3: Configure the Terminal Software
+
+    Open your terminal software (e.g., PuTTY).
+    Set the connection type to Serial.
+    Select the correct COM port (e.g., COM1, COM2, etc.).
+    Set the Serial line parameters (standard Cisco routers use the following settings):
+        Speed (baud rate): 9600
+        Data bits: 8
+        Parity: None
+        Stop bits: 1
+        Flow control: None
+
+Step 4: Access the Router Console
+
+    Once the connection is established, press Enter to get the router's command prompt.
+
+Step 5: Enter Privileged EXEC Mode
+
+    You may need to enter enable mode:
+
+    enable
+
+Step 6: Copy the Configuration File to the Router
+
+You have two methods to upload the configuration to the router:
+Method 1: Copy Configuration File from TFTP Server (Recommended)
+
+    Set up a TFTP server on your computer. There are free TFTP servers available, such as Tftpd32 or PumpKIN.
+    Place the saved configuration file (router-config.txt) in the TFTP server's directory.
+    On the router's CLI, run the following command to copy the configuration from the TFTP server to the router's startup configuration:
+
+    copy tftp://<TFTP_Server_IP>/router-config.txt startup-config
+
+    Replace <TFTP_Server_IP> with the IP address of the TFTP server.
+
+Method 2: Use Terminal to Paste the Configuration (Direct Paste)
+
+    If you don't want to use a TFTP server, you can paste the configuration manually into the router using the terminal:
+        In the router’s CLI, enter configuration mode:
+
+        configure terminal
+
+        Then, manually paste the configuration you copied from the .txt file in Packet Tracer.
+    Note: Ensure the router’s CLI is in the correct mode (global config mode) for direct pasting.
+
+Step 7: Save the Configuration
+
+    Once the configuration has been copied to the router, save it to the router's memory:
+
+write memory
+
+or
+
+    copy running-config startup-config
+
+Step 8: Verify the Configuration
+
+    Check the router’s configuration to ensure it was applied correctly:
+
+show running-config
