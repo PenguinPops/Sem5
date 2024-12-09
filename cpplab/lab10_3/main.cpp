@@ -17,10 +17,31 @@ int main() {
     getline(cin, line);
 
     vector<tuple<string, string, regex>> patterns = {
-        {"nazwa ulicy", "nazwy ulicy", regex("\\b[A-Z][a-z]+(?: [A-Z][a-z]+)*\\b")},
+        {"nazwa ulicy", "nazwy ulicy", regex("\\b[AaUu]l\\. ([A-Z]|[0-9]+)([0-9a-zA-Z]+)*\\b")},
+            // \b - granica słowa
+            // [AaUu]l\\. - ul. albo al.
+            // [A-Z] - duża litera alfabetu łacińskiego
+            // [a-z] - mała litera alfabetu łacińskiego
+            // + - jedna lub więcej wystąpień
+            // (?: ) - grupa niezapamiętująca - nie jest zapisywana w wyniku
+            // * - zero lub więcej wystąpień
+            // \b - granica słowa
+
         {"kod pocztowy", "kodu pocztowego", regex("\\b[0-9]{2}-[0-9]{3}\\b")},
-        {"numer domu", "numeru domu", regex("\\b[0-9]+[A-Z]?\\b")},
-        {"numer mieszkania", "numeru mieszkania", regex("\\b[0-9]+[A-Z]?\\d+\\b")}
+            // [0-9] - cyfra od 0 do 9
+            // {2} - dokładnie 2 wystąpienia
+            // - - myślnik
+            // {3} - dokładnie 3 wystąpienia
+
+        {"numer domu", "numeru domu", regex("\\b[0-9]+[A-Z]?")},
+            // [0-9] - cyfra od 0 do 9
+            // + - jedna lub więcej wystąpień
+            // [A-Z]? - opcjonalna duża litera alfabetu łacińskiego
+
+        {"numer mieszkania", "numeru mieszkania", regex("/[0-9]+\\b")}
+            // / - /
+            // [0-9]+ - cyfry od 0 do 9
+
     };
 
     for (const auto& element : patterns) {

@@ -36,9 +36,17 @@ int main() {
 
     vector<tuple<string, string, regex, string>> patterns = {
         {"imię", "imienia", regex("\\b[A-Za-z]+\\b"), imie},
+            // \b - granica słowa
+            // [A-Za-z]+ - jedna lub więcej liter alfabetu łacińskiego
         {"nazwisko", "nazwiska", regex("\\b[A-Za-z]+(?:-[A-Za-z]+)?\\b"), nazwisko},
-        {"wiek", "wieku", regex("\\b[0-9]{1,2}\\b"), wiek},
-        {"numer telefonu komórkowego", "numeru telefonu komórkowego", regex("\\b[1-9][0-9]{8}\\b"), telefon},
+            // [A-Za-z]+ - jedna lub więcej liter alfabetu łacińskiego
+            // (?: ) - grupa niezapamiętująca - nie jest zapisywana w wyniku
+            // - - myślnik
+            // ? - zero lub jedno wystąpienie
+        {"wiek", "wieku", regex("\\b1?[0-9]{1,2}\\b"), wiek},
+            // 1? - opcjonalna cyfra 1
+            // [0-9]{1,2} - cyfra od 0 do 9, jedno lub dwa wystąpienia
+        {"numer telefonu komórkowego", "numeru telefonu komórkowego", regex("\\b[0-9]{9}\\b"), telefon},
         {"email", "emaila", regex("\\b[A-Za-z][A-Za-z0-9_.+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}\\b"), email}
     };
 

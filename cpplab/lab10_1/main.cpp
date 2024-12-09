@@ -11,12 +11,23 @@ int main() {
     string line;
     cout << "Podaj łańcuch znaków: ";
     getline(cin, line);
-    regex wzor("[-+]?[0-9]+\\.[0-9]+");
-    if(regex_search(line, wzor)) {
-        cout << "Znaleziono liczbę zmiennoprzecinkową ze znakiem.\n";
+
+    // Wyrażenie bez użycia lookbehind/lookahead
+    regex wzor("(?:^|[^\\d+\\-=])\\s*[+-]\\d+\\.\\d+\\s*(?:$|[^\\d+\\-=])");
+        // (?:^|[^\\d+\\-=]) - początek linii lub znak, który nie jest cyfrą, +, -, =
+        // \\s* - zero lub więcej białych znaków
+        // [+-] - + lub -
+        // \\d+ - jedna lub więcej cyfr
+        // \\. - kropka
+        // \\d+ - jedna lub więcej cyfr
+        // \\s* - zero lub więcej białych znaków
+        // (?:$|[^\\d+\\-=]) - koniec linii lub znak, który nie jest cyfrą, +, -, =
+
+    if (regex_search(line, wzor)) {
+        cout << "Znaleziono liczbę zmiennoprzecinkową ze znakiem " << endl;
     }
     else {
-        cout << "Nie znaleziono liczby zmiennoprzecinkowej ze znakiem.\n";
+        cout << "Nie znaleziono liczby zmiennoprzecinkowej ze znakiem "<< endl;
     }
     return 0;
 }

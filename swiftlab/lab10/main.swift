@@ -26,17 +26,16 @@ func najmniejszaZ3(_ a: Int, _ b: Int, _ c: Int) -> Int { // _ - pomija nazwę a
 
 // Polecenie 4
 
-func zwrocSkrajne(_ a: Int, _ b: Int, _ c: Int) -> () {
-    print("Najmniejsza z 3 liczb: ", terminator: "");
-    print(najmniejszaZ3(a, b, c), terminator: ", ");
-    print("Największa z 3 liczb: ", terminator: "");
-    print(najwiekszaZ3(a, b, c));
+func zwrocSkrajne(_ a: Int, _ b: Int, _ c: Int) -> (Int, Int) {
+    return (najwiekszaZ3(a, b, c), najmniejszaZ3(a, b, c));
 }
 
 let liczby: (Int, Int, Int) = losuj3Liczby();
 print("3 losowe liczby: ", terminator: "");
 print(liczby);
-zwrocSkrajne(liczby.0, liczby.1, liczby.2)
+print("Największa i najmniejsza z 3 liczb: ", terminator: "");
+let wynik = zwrocSkrajne(liczby.0, liczby.1, liczby.2);
+print("\(wynik.0) i \(wynik.1)");
 
 // Zadanie 10.3
 
@@ -69,7 +68,7 @@ func odlegloscMiedzyPkt( _ x1:Double, _ y1:Double, _ x2:Double, _ y2:Double ) ->
 // Polecenie 3. Napisz funkcję zwracającą numer ćwiartki, w której leży dany punkt.
 
 func numerCwiartki( _ x:Double, _ y:Double ) -> Int {
-    if(x<0) {
+    if(x>0) {
         if(y<0) {return 4;}
         else {return 1;}
     }
@@ -89,11 +88,11 @@ func sprawdzOkrag( _ x: Double, _ y: Double) {
     let odlegloscOdSrodka = sqrt(pow(x, 2) + pow(y, 2))
 
     if odlegloscOdSrodka < promien {
-        print("Punkt (\(x), \(y)) znajduje się wewnątrz okręgu.")
+        print("Punkt (\(x), \(y)) znajduje się wewnątrz okręgu.");
     } else if odlegloscOdSrodka == promien {
-        print("Punkt (\(x), \(y)) znajduje się na obwodzie okręgu.")
+        print("Punkt (\(x), \(y)) znajduje się na obwodzie okręgu.");
     } else {
-        print("Punkt (\(x), \(y)) znajduje się poza okręgiem.")
+        print("Punkt (\(x), \(y)) znajduje się poza okręgiem.");
     }
 }
 
@@ -126,41 +125,41 @@ var tablica: [Double] = []
 for _ in 0..<wielkosc {
     print("Podaj element tablicy: ", terminator: "")
     guard let element = Double(readLine()!) else { fatalError("🐶") }
-    tablica.append(element)
+    tablica.append(element);
 }
 
 func najwiekszyElement(_ tablica: [Double]) -> Double {
-    return tablica.max()!
+    return tablica.max()!;
 }
 
 func najmniejszyElement(_ tablica: [Double]) -> Double {
-    return tablica.min()!
+    return tablica.min()!;
 }
 
 func sredniaArytmetyczna(_ tablica: [Double]) -> Double {
-    return tablica.reduce(0, +) / Double(tablica.count)
+    return tablica.reduce(0, +) / Double(tablica.count);
 }
 
 // Polecenie 2. Napisz funkcję, która wczyta elementy do tablicy i zwróci tą tablicę. Funkcja
 // powinna posiadać parametr mówiący o liczbie elementów tablicy.
 
 func wczytajTablice(_ wielkosc: Int) -> [Double] {
-    var tablica: [Double] = []
+    var tablica: [Double] = [];
 
     for _ in 0..<wielkosc {
         print("Podaj element tablicy: ", terminator: "")
         guard let element = Double(readLine()!) else { fatalError("🐶") }
-        tablica.append(element)
+        tablica.append(element);
     }
 
-    return tablica
+    return tablica;
 }
 
 // Polecenie 3. Napisz funkcję, która wyświetli wszystkie elementy tablicy.
 
 func wyswietlTablice(_ tablica: [Double]) {
-    print("Tablica: ", terminator: "")
-    print(tablica)
+    print("Tablica: ", terminator: "");
+    print(tablica);
 }
 
 // Polecenie 4. Napisz funkcję, która wyznaczy i zwróci najmniejszy element tablicy oraz
@@ -168,8 +167,8 @@ func wyswietlTablice(_ tablica: [Double]) {
 
 func najmniejszyElementZIndeksem(_ tablica: [Double]) -> (Double, Int) {
     let minElement = tablica.min()!
-    let index = tablica.firstIndex(of: minElement)!
-    return (minElement, index)
+    let index = tablica.firstIndex(of: minElement)!;
+    return (minElement, index);
 }
 
 // Polecenie 5. Napisz funkcję, która wyznaczy i zwróci największy element tablicy oraz indeks,
@@ -177,18 +176,18 @@ func najmniejszyElementZIndeksem(_ tablica: [Double]) -> (Double, Int) {
 
 func najwiekszyElementZIndeksem(_ tablica: [Double]) -> (Double, Int) {
     let maxElement = tablica.max()!
-    let index = tablica.firstIndex(of: maxElement)!
-    return (maxElement, index)
+    let index = tablica.firstIndex(of: maxElement)!;
+    return (maxElement, index);
 }
 
 // Polecenie 6. Napisz funkcję, która zamieni miejscami element największy z najmniejszym.
 
 func zamienMiejscamiNajwiekszyNajmniejszy(_ tablica: inout [Double]) {
-    let (minElement, minIndex) = najmniejszyElementZIndeksem(tablica)
-    let (maxElement, maxIndex) = najwiekszyElementZIndeksem(tablica)
+    let (minElement, minIndex) = najmniejszyElementZIndeksem(tablica);
+    let (maxElement, maxIndex) = najwiekszyElementZIndeksem(tablica);
 
-    tablica[minIndex] = maxElement
-    tablica[maxIndex] = minElement
+    tablica[minIndex] = maxElement;
+    tablica[maxIndex] = minElement;
 }
 
 // Polecenie 7. Napisz funkcję, która wyznaczy i zwróci średnią arytmetyczną wszystkich
@@ -209,7 +208,7 @@ print(najmniejszyElement(tablica))
 print("Średnia arytmetyczna: ", terminator: "")
 print(sredniaArytmetyczna(tablica))
 
-let tablica2 = wczytajTablice(wielkosc)
+var tablica2 = wczytajTablice(wielkosc)
 wyswietlTablice(tablica2)
 
 let (minElement, minIndex) = najmniejszyElementZIndeksem(tablica2)
