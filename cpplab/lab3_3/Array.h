@@ -57,17 +57,6 @@ void Array<T>::sort() {
 }
 
 template<typename T>
-T Array<T>::findMax() {
-    T max = tab[0];
-    for(int i=1;i<firstFree;i++) {
-        if(tab[i]>max) {
-            max = tab[i];
-        }
-    }
-    return max;
-}
-
-template<typename T>
 void Array<T>::show() {
     for(int i=0;i<firstFree;i++) {
         cout << tab[i] << " ";
@@ -105,6 +94,17 @@ void Array<string>::sort() {
         }
     }
     return;
+}
+
+template<typename T>
+T Array<T>::findMax() {
+    T max = tab[0];
+    for(int i=1;i<firstFree;i++) {
+        if(tab[i]>max) {
+            max = tab[i];
+        }
+    }
+    return max;
 }
 
 template<>
