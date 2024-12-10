@@ -1,0 +1,21 @@
+hostname R3
+
+interface GigabitEthernet0/0
+ ip address 172.16.1.33 255.255.255.248
+ no shutdown
+
+interface Serial0/0/0
+ ip address 192.168.10.6 255.255.255.252
+ ip ospf cost 1562
+ clock rate 64000
+ no shutdown
+
+interface Serial0/0/1
+ ip address 192.168.10.10 255.255.255.252
+ ip ospf cost 1562
+ no shutdown
+
+ router ospf 1
+ network 172.16.1.32 0.0.0.7 area 0
+ network 192.168.10.4 0.0.0.3 area 0
+ network 192.168.10.8 0.0.0.3 area 0

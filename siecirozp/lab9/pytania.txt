@@ -1,0 +1,23 @@
+1.  Zanotuj wynik działania polecenia show ip ospf neighbor na 
+    routerze R1 i  wyjaśnij co oznaczają kolumny "Pri" oraz "State".
+
+PRI (Priority):
+PRI oznacza priorytet przypisany do interfejsu OSPF sąsiada.
+Priorytet jest używany w procesie wyboru Designated Router (DR) i Backup Designated Router (BDR) na danym segmencie sieci.
+Zakres priorytetu to od 0 do 255:
+    0: Router nie może być wybrany na DR ani BDR (bierze udział tylko jako "drobny" router, czyli DROTHER).
+    1–255: Wyższy priorytet zwiększa szansę, że router zostanie wybrany jako DR lub BDR.
+
+STATE:
+    STATE oznacza stan relacji sąsiedztwa między lokalnym routerem a danym sąsiadem.
+    Stany w OSPF odzwierciedlają etapy tworzenia sąsiedztwa i synchronizacji LSDB (Link State Database). 
+    Mogą przyjąć jedną z następujących wartości: Down, Attempt, Init, 2-Way, ExStart, Exchange, Loading, Full
+
+2. Zanotuj wynik działania polecenia show ip protocols na routerze R2 i 
+   wyjaśnij co oznaczają pojęcia "normal", "stub" oraz "nssa" w linii:
+
+Obszar normalny to standardowy typ w OSPF, nie ma ograniczeń LSA
+Stub to obszar który nie akceptuje tras zewnętrznych
+NSSA to modyfikacja stub, pozwala na zewnętrzne ale nie propaguje ich dalej
+
+3.  
