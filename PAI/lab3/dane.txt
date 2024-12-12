@@ -1,0 +1,3 @@
+Tanaś 21 p abc@def.com CPP,HTML eurocard
+Tanaś 21 p abc@def.com CPP,HTML eurocard
+Tanaś 39 p abc@def.com C,CPP,Java,XML visa

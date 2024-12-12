@@ -53,6 +53,8 @@ class Pracownik : Osoba {
         super.init(imie: imie, nazwisko: nazwisko, rokUrodzenia: rokUrodzenia);
     }
 
+
+
     func lataPracy() -> Int {
         return 2024 - rokZatrudnienia;
     }
@@ -72,3 +74,12 @@ var p2 = Pracownik(imie: "Anna", nazwisko: "Nowak", rokUrodzenia: 1985, rokZatru
 print(p1.dane());
 print(p2.dane());
 
+if(p1.wiek() < p2.wiek()) {
+    print("Pracownik 1 jest młodszy");
+}
+else if (p1.wiek() > p2.wiek()){
+    print("Pracownik 2 jest młodszy");
+}
+else {
+    print("Są w tym samym wieku");
+}

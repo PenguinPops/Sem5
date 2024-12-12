@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/style.css" type="text/css">
+    <link rel="stylesheet" href="CSS/formularze.css" type="text/css">
+
+    <title>Szybki kurs HTML</title>
+</head>
+
+<body>
+    <div id="baner">
+        <h2>Szybki kurs HTML</h2>
+    </div>
+    <div id="menu">
+        <a href="index.html">Podstawowe znaczniki</a>
+        <a href="tabele.html">Tworzenie tabeli</a>
+        <a href="formularze.html"> Budowa formularzy</a>
+    </div>
+
+    <form method="POST" action="odbierz.php">
+        <!-- <div id="tresc">
+    <div >
+        <h3>Podstawowe znaczniki formularza to:</h3>
+        <ul>
+            <li> &lt; form &gt; - znacznik podstawowy zawierający pola formularza</li>
+            <li>&lt; input &gt; - znacznik umożliwia wstawienie różnych pól(pole tekstowe,przycisk tpu radio, przycisk typu checkbox)
+                w zależności od wartości jego atrybutu type
+            </li>
+            <li>&lt;select &gt; - pole formularza typu lista rozwijana</li>
+            <li>&lt;textarea&gt; - pole formularza typu obszar tekstowy</li>
+            <li>&lt;button&gt; - pole formularza typu przycisk</li>
+        </ul>
+    </div> -->
+        <h3>Przykładowy formularz HTML</h3>
+        <div>
+            <table>
+                <tr>
+                    <td> <label for="naz">Nazwisko: </label></td>
+                    <td><input id="naz" type="text"></td>
+                </tr>
+                <tr>
+                    <td> <label for="wiek">Wiek: </label></td>
+                    <td><input id="wiek" type="text"></td>
+                </tr>
+                <tr>
+                    <td>Państwo:</td>
+                    <td><select name="panstwo" class="przycisk">
+                            <option value="p">Polska</option>
+                            <option value="u">USA</option>
+                            <option value="f">Francja</option>
+                            <option value="r">Rosja</option>
+                        </select></td>
+                </tr>
+                <tr>
+                    <td><label for="mail">Adres e-mail: </label></td>
+                    <td><input id="mail" type="email" name="email" maxlength="30" size="30"></td>
+                </tr>
+            </table>
+            <h4>Zamawiam tutorial z języka:</h4>
+            <select name="jezyki[]" class="przycisk" multiple>
+                <option value="html">HTML</option>
+                <option value="css">CSS</option>
+                <option value="js">JavaScript</option>
+                <option value="php">PHP</option>
+            </select>
+            <h4>Sposób zapłaty</h4>
+            <input class="przycisk" type="radio" name="platnosc" value="eurocard">eurocard
+            <input class="przycisk" type="radio" name="platnosc" value="visa">visa
+            <input class="przycisk" type="radio" name="platnosc" value="bank">przelew bankowy
+            <br>
+            <input class="button" type="submit" value="Wyślij">
+            <input class="button" type="reset" value="Anuluj">
+        </div>
+        </div>
+    </form>
+    <div id="stopka"> &copy;MS </div>
+</body>
+
+</html>
