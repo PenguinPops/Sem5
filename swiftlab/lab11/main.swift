@@ -31,7 +31,7 @@ class Prostopadloscian : Prostokat {
         self.h = h;
         super.init(a: a, b: b);
     }
-//:)
+
     override func pole() -> Double {
         return (a*b+a*h+b*h)*2;
     }
