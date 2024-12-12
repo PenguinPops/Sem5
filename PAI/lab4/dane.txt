@@ -1,0 +1,3 @@
+Abc;p;[CPP,Java];abc@def.com;23
+Java;p;[C,CPP,Java,PHP,JavaScript];addd@pl.pl;21
+Wojciech;p;[C,CPP,HTML];abc@l.com;24

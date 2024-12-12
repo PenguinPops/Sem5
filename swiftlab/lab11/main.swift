@@ -49,6 +49,14 @@ class Prostopadloscian : Prostokat {
     }
 }
 
+var p1 = Prostokat(a:5,b:6);
+
+print(p1.dane());
+
+var p2 = Prostopadloscian(a:5,b:6,h:7);
+
+print(p2.dane());
+
 // Zadanie 11.3
 
 class Osoba {
@@ -82,24 +90,24 @@ class Student: Osoba {
     var kierunek: Kierunek;
     var rokStudiow: Int;
     // oceny z 5 przedmiotów jako klucz: wartość
-    var oceny: [String: Double]
+    var oceny: [String: Double];
 
     init(imie: String, nazwisko: String, rokUrodzenia: Int, nrIndeksu: Int, kierunek: Kierunek, rokStudiow: Int, oceny: [String: Double]) {
         // Sprawdzamy, czy oceny mieszczą się w dozwolonym zakresie
         for ocena in oceny.values {
             if ocena < 2.0 || ocena > 5.0 {
-                fatalError("Ocena \(ocena) jest niepoprawna. Oceny muszą być w zakresie od 2.0 do 5.0.")
+                fatalError("Ocena \(ocena) jest niepoprawna. Oceny muszą być w zakresie od 2.0 do 5.0.");
             }
         }
 
         // Inicjalizujemy właściwości
-        self.nrIndeksu = nrIndeksu
-        self.kierunek = kierunek
-        self.rokStudiow = rokStudiow
-        self.oceny = oceny
+        self.nrIndeksu = nrIndeksu;
+        self.kierunek = kierunek;
+        self.rokStudiow = rokStudiow;
+        self.oceny = oceny;
 
         // Wywołujemy konstruktor klasy bazowej
-        super.init(imie: imie, nazwisko: nazwisko, rokUrodzenia: rokUrodzenia)
+        super.init(imie: imie, nazwisko: nazwisko, rokUrodzenia: rokUrodzenia);
     }
 
     func srednia() -> Double {
@@ -117,7 +125,7 @@ class Student: Osoba {
 func wczytaj() -> [Student] {
     print("Podaj liczbę studentów:")
     guard let liczbaStudentow = Int(readLine()!) else {
-        fatalError("Podana wartość nie jest liczbą całkowitą.")
+        fatalError("Podana wartość nie jest liczbą całkowitą.");
     }
 
     var studenci: [Student] = []
@@ -125,31 +133,31 @@ func wczytaj() -> [Student] {
     for _ in 0..<liczbaStudentow {
         print("Podaj imię:")
         guard let imie = readLine() else {
-            fatalError("Imię nie może być puste.")
+            fatalError("Imię nie może być puste.");
         }
 
         print("Podaj nazwisko:")
         guard let nazwisko = readLine() else {
-            fatalError("Nazwisko nie może być puste.")
+            fatalError("Nazwisko nie może być puste.");
         }
 
         print("Podaj rok urodzenia:")
         guard let rokUrodzenia = Int(readLine()!) else {
-            fatalError("Rok urodzenia musi być liczbą całkowitą.")
+            fatalError("Rok urodzenia musi być liczbą całkowitą.");
         }
 
         print("Podaj numer indeksu:")
         guard let nrIndeksu = Int(readLine()!) else {
-            fatalError("Numer indeksu musi być liczbą całkowitą.")
+            fatalError("Numer indeksu musi być liczbą całkowitą.");
         }
 
-        print("Podaj numer kierunku (1 - Informatyka, 2 - Mechatronika, \n3 - Architektura, 4 - Budownictwo):")
+        print("Podaj numer kierunku (1 - Informatyka, 2 - Mechatronika, \n3 - Architektura, 4 - Budownictwo):");
 
         guard let wybor = readLine(), let numerKierunku = Int(wybor) else {
-            fatalError("Podano niepoprawny numer.")
+            fatalError("Podano niepoprawny numer.");
         }
 
-        let kierunek: Student.Kierunek
+        let kierunek: Student.Kierunek;
 
         switch numerKierunku {
         case 1:
@@ -166,94 +174,110 @@ func wczytaj() -> [Student] {
 
         print("Podaj rok studiów:")
         guard let rokStudiow = Int(readLine()!) else {
-            fatalError("Rok studiów musi być liczbą całkowitą.")
+            fatalError("Rok studiów musi być liczbą całkowitą.");
         }
 
         var oceny: [String: Double] = [:]
         for przedmiot in ["Matematyka", "Fizyka", "Inżynieria", "OWI", "BHP"] {
-            print("Podaj ocenę z \(przedmiot):")
+            print("Podaj ocenę z \(przedmiot):");
             guard let ocena = Double(readLine()!) else {
-                fatalError("Ocena musi być liczbą zmiennoprzecinkową.")
+                fatalError("Ocena musi być liczbą zmiennoprzecinkową.");
             }
 
-            oceny[przedmiot] = ocena
+            oceny[przedmiot] = ocena;
         }
 
         // Tworzymy obiekt klasy Student i dodajemy go do listy
-        let student = Student(imie: imie, nazwisko: nazwisko, rokUrodzenia: rokUrodzenia, nrIndeksu: nrIndeksu, kierunek: kierunek, rokStudiow: rokStudiow, oceny: oceny)
-        studenci.append(student)
+        let student = Student(imie: imie, nazwisko: nazwisko, rokUrodzenia: rokUrodzenia, nrIndeksu: nrIndeksu, kierunek: kierunek, rokStudiow: rokStudiow, oceny: oceny);
+        studenci.append(student);
     }
 
-    return studenci
+    return studenci;
 }
 
-var studenci: [Student] = wczytaj();
+// var studenci: [Student] = wczytaj();
 
-for student: Student in studenci{ 
-    print(student.dane());
-}
+// for student: Student in studenci{ 
+//     print(student.dane());
+// }
 
 // Zadanie 11.4
 
 import Foundation
 
 class StudentNaErasmusie: Student {
-    private var uczelniaZagraniczna: String
-    private var dataRozpoczecia: String
-    private var dataZakonczenia: String
-    private var kursy: [String: Double]
+    private var uczelniaZagraniczna: String;
+    private var dataRozpoczecia: String;
+    private var dataZakonczenia: String;
+    private var kursy: [String: Double];
 
     // Inicjalizator
     init(imie: String, nazwisko: String, rokUrodzenia: Int, nrIndeksu: Int, kierunek: Kierunek, rokStudiow: Int, oceny: [String: Double], uczelniaZagraniczna: String, dataRozpoczecia: String, dataZakonczenia: String, kursy: [String: Double]) {
-        self.uczelniaZagraniczna = uczelniaZagraniczna
-        self.dataRozpoczecia = dataRozpoczecia
-        self.dataZakonczenia = dataZakonczenia
-        self.kursy = kursy
+        self.uczelniaZagraniczna = uczelniaZagraniczna;
+        self.dataRozpoczecia = dataRozpoczecia;
+        self.dataZakonczenia = dataZakonczenia;
+        self.kursy = kursy;
 
         // Wywołanie inicjalizatora klasy bazowej (Student)
-        super.init(imie: imie, nazwisko: nazwisko, rokUrodzenia: rokUrodzenia, nrIndeksu: nrIndeksu, kierunek: kierunek, rokStudiow: rokStudiow, oceny: oceny)
+        super.init(imie: imie, nazwisko: nazwisko, rokUrodzenia: rokUrodzenia, nrIndeksu: nrIndeksu, kierunek: kierunek, rokStudiow: rokStudiow, oceny: oceny);
     }
 
     // Funkcja do wyświetlania danych studenta na Erasmusie
     func wyswietlDaneNaErasmusie() {
         // Wywołujemy metodę dziedziczoną z klasy Student
-        print("Imię i nazwisko: \(dane())")
-        print("Numer indeksu: \(nrIndeksu)")
-        print("Kierunek: \(kierunek)")
-        print("Rok studiów: \(rokStudiow)")
-        print("Uczelnia zagraniczna: \(uczelniaZagraniczna)")
-        print("Data rozpoczęcia: \(dataRozpoczecia)")
-        print("Data zakończenia: \(dataZakonczenia)")
+        print("Imię i nazwisko: \(dane())");
+        print("Numer indeksu: \(nrIndeksu)");
+        print("Kierunek: \(kierunek)");
+        print("Rok studiów: \(rokStudiow)");
+        print("Uczelnia zagraniczna: \(uczelniaZagraniczna)");
+        print("Data rozpoczęcia: \(dataRozpoczecia)");
+        print("Data zakończenia: \(dataZakonczenia)");
         
         // Wyświetlamy kursy i oceny
         print("Kursy na Erasmusie:")
         for (kurs, ocena) in kursy {
-            print("- \(kurs): \(ocena)")
+            print("- \(kurs): \(ocena)");
         }
     }
 
     // Funkcja do obliczania czasu spędzonego na Erasmusie
     func czasNaErasmusie() -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
+        let formatter = DateFormatter();
+        formatter.dateFormat = "dd-MM-yyyy";
         
         if let startDate = formatter.date(from: dataRozpoczecia),
            let endDate = formatter.date(from: dataZakonczenia) {
-            let calendar = Calendar.current
-            let components = calendar.dateComponents([.day], from: startDate, to: endDate)
+            let calendar = Calendar.current;
+            let components = calendar.dateComponents([.day], from: startDate, to: endDate);
             
             if let days = components.day {
-                return "\(days) dni"
+                return "\(days) dni";
             }
         }
         
-        return "Błąd w datach"
+        return "Nieprawidłowo podana data";
     }
 
     // Funkcja do obliczania średniej oceny z kursów
     func sredniaOcena() -> Double {
-        let sum = kursy.values.reduce(0.0, +)
-        return sum / Double(kursy.count)
+        let sum = kursy.values.reduce(0.0, +);
+        return sum / Double(kursy.count);
     }
 }
 
+let studentNaErasmusie = StudentNaErasmusie(
+    imie: "Adrian",
+    nazwisko: "Kowalski",
+    rokUrodzenia: 1990,
+    nrIndeksu: 83498,
+    kierunek: Student.Kierunek.Informatyka,
+    rokStudiow: 3,
+    oceny: ["Matematyka": 4.5, "Fizyka": 5.0, "Inżynieria": 4.0, "OWI": 4.5, "BHP": 5.0],
+    uczelniaZagraniczna: "University of Cambridge",
+    dataRozpoczecia: "01-09-2023",
+    dataZakonczenia: "31-12-2023",
+    kursy: ["Advanced Programming": 4.0, "Machine Learning": 4.5, "Data Science": 5.0]
+)
+
+// studentNaErasmusie.wyswietlDaneNaErasmusie();
+// print("Czas na Erasmusie: \(studentNaErasmusie.czasNaErasmusie())");
