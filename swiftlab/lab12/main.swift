@@ -142,7 +142,7 @@ enum BledyBankomat: Error {
 
 // Utwórz funkcję, która wywoła odpowiednie błędy.
 
-func wplacPieniadze(_ kwota: Int, _ limit: Int) throws {
+func wyplacPieniadze(_ kwota: Int, _ limit: Int) throws {
     if kwota > limit {
         throw BledyBankomat.przekroczenieLimitu
     }
@@ -154,7 +154,7 @@ func wplacPieniadze(_ kwota: Int, _ limit: Int) throws {
 // Obsłuż błędy za pomocą instrukcji do-catch
 
 do {
-    try wplacPieniadze(100, 50)
+    try wyplacPieniadze(100, 50)
 } catch BledyBankomat.przekroczenieLimitu {
     print("Przekroczenie limitu")
 } catch BledyBankomat.innyBlad {
@@ -173,7 +173,7 @@ func bankomat(_ kwota: Int) {
         if kwota > dostepnaKwota {
             throw BledyBankomat.brakKwoty
         }
-        try wplacPieniadze(kwota, limit)
+        try wyplacPieniadze(kwota, limit)
         print("Pieniądze zostały wypłacone: \(kwota) zł")
     } catch BledyBankomat.przekroczenieLimitu {
         print("Przekroczenie dziennego limitu wypłaty")
