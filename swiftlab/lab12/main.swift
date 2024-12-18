@@ -22,7 +22,7 @@ class OperacjeNaLiczbachZespolonych: LiczbaZepolona {
         self.re = re
         self.im = im
     }
-    
+// :) :) :)
     func dodaj(_ liczba: LiczbaZepolona) -> LiczbaZepolona {
         return OperacjeNaLiczbachZespolonych(re: re + liczba.re, im: im + liczba.im)
     }
