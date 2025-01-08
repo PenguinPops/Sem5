@@ -68,6 +68,10 @@ int main()
     unique_ptr<Shop> s2 = make_unique<Shop>(std::move(w2));
     unique_ptr<Shop> s3 = make_unique<Shop>(std::move(w3));
 
+    s1->showWarehouses();
+    s2->showWarehouses();
+    s3->showWarehouses();
+
     s1->sell("komputery", 5);
     s1->showWarehouses();
     s2->sell("ksiazki", 10);

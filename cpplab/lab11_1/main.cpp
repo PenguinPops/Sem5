@@ -47,19 +47,19 @@ public:
 class BufferArr : public Buffer
 {
 private:
-    int *tab;
+    unique_ptr<int[]> tab;
     int size;
     int index;
 
 public:
     BufferArr(int s) : size(s)
     {
-        tab = new int[size];
+        tab = make_unique<int[]>(size);
         index = 0;
     }
     ~BufferArr()
     {
-        delete[] tab;
+        tab.reset();
     }
     void add(int a)
     {
@@ -103,11 +103,11 @@ public:
     }
     void write()
     {
-        fseek(file, 0, SEEK_SET);
-        char line[256];
+        fseek(file, 0, SEEK_SET); // ustawienie wskaźnika na początek pliku
+        char line[256]; // bufor na linie
         while (fgets(line, sizeof(line), file))
         {
-            cout << line;
+            cout << line; // wypisanie linii
         }
     }
 };

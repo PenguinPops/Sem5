@@ -23,11 +23,11 @@ class OperacjeNaLiczbachZespolonych: LiczbaZepolona {
         self.im = im
     }
 // :) :) :)
-    func dodaj(_ liczba: LiczbaZepolona) -> LiczbaZepolona {
+    func dodaj(_ liczba: LiczbaZepolona) -> OperacjeNaLiczbachZespolonych {
         return OperacjeNaLiczbachZespolonych(re: re + liczba.re, im: im + liczba.im)
     }
     
-    func odejmij(_ liczba: LiczbaZepolona) -> LiczbaZepolona {
+    func odejmij(_ liczba: LiczbaZepolona) -> OperacjeNaLiczbachZespolonych {
         return OperacjeNaLiczbachZespolonych(re: re - liczba.re, im: im - liczba.im)
     }
     
@@ -35,6 +35,13 @@ class OperacjeNaLiczbachZespolonych: LiczbaZepolona {
         print("Liczba zespolona: \(re) + \(im)i")
     }
 }
+
+var a = OperacjeNaLiczbachZespolonych(re: 2, im: 3);
+var b = OperacjeNaLiczbachZespolonych(re: 1, im: 2);
+
+var c = a.dodaj(b);
+
+c.wyswietl();
 
 // Zad 12.2 ------------------------
 
@@ -167,7 +174,7 @@ do {
 
 func bankomat(_ kwota: Int) {
     let limit = 1000
-    let dostepnaKwota = 5000 // Definiujemy dostępne środki w bankomacie
+    let dostepnaKwota = 5000
     
     do {
         if kwota > dostepnaKwota {

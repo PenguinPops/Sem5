@@ -1,0 +1,4 @@
+/home/evani/Documents/Sem5/cpplab/lab13t/build/CMakeFiles/test_runner.dir
+/home/evani/Documents/Sem5/cpplab/lab13t/build/CMakeFiles/test.dir
+/home/evani/Documents/Sem5/cpplab/lab13t/build/CMakeFiles/edit_cache.dir
+/home/evani/Documents/Sem5/cpplab/lab13t/build/CMakeFiles/rebuild_cache.dir
