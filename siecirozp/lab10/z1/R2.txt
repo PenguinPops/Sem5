@@ -1,0 +1,17 @@
+hostname R2
+
+line con 0
+ logging synchronous
+
+interface Loopback0
+ ip address 192.168.31.22 255.255.255.255
+
+interface GigabitEthernet0/0
+ ip address 192.168.1.2 255.255.255.0
+ no shutdown
+
+router ospf 1
+ network 192.168.1.0 0.0.0.255 area 0
+
+interface GigabitEthernet0/0
+ ip ospf priority 0

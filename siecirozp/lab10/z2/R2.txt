@@ -1,0 +1,44 @@
+
+## KONFIGURACJA ROUTERA
+
+hostname R2
+ipv6 unicast-routing
+
+line con 0
+ logging synchronous
+
+interface GigabitEthernet0/0
+ ipv6 address FE80::2 link-local
+ ipv6 address 2001:DB8:ACAD:B::2/64
+ ipv6 ospf 1 area 0
+ no shutdown
+
+interface Serial0/0/0
+ ipv6 address FE80::2 link-local
+ ipv6 address 2001:DB8:ACAD:12::2/64
+ no shutdown
+
+interface Serial0/0/1
+ ipv6 address FE80::2 link-local
+ ipv6 address 2001:DB8:ACAD:23::2/64
+ clock rate 64000
+ no shutdown
+
+## KONFIGURACJA OSPF
+
+ipv6 router ospf 1
+ router-id 2.2.2.2
+
+interface GigabitEthernet0/0
+ ipv6 ospf 1 area 0
+
+interface Serial0/0/0
+ ipv6 ospf 1 area 0
+
+interface Serial0/0/1
+ ipv6 ospf 1 area 0
+
+## TEGO NIE ROBIĆ
+
+ipv6 router ospf 1
+ passive-interface default
