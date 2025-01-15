@@ -1,7 +1,10 @@
 <?php
+        header("Access-Control-Allow-Origin: *"); // Zezwala na dostęp z każdego źródła
+        header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE"); // Dozwolone metody
+        header("Access-Control-Allow-Headers: Content-Type, Authorization"); // Dozwolone nagłówki
+
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-
 function drukuj_form()
 {
     $zawartosc = '<div id="tresc">
@@ -54,8 +57,8 @@ function drukuj_form()
             </tr>
             <tr>
                 <td colspan="2" style="text-align: center; padding-top: 10px;">
-                    <button type="submit" name="submit" value="Dodaj" style="margin-right: 5px;">Dodaj</button>
-                    <button type="submit" name="submit" value="Pokaż" style="margin-right: 5px;">Pokaż</button>
+                    <button type="button" id="btnDodaj" style="margin-right: 5px;">Dodaj</button>
+                    <button type="button" id="btnPokaz" style="margin-right: 5px;">Pokaż</button>
                     <button type="reset">Anuluj</button>
                 </td>
             </tr>
@@ -65,6 +68,7 @@ function drukuj_form()
 
     return $zawartosc;
 }
+
 function walidacja() {
     $args = [
         'nazwisko' => FILTER_SANITIZE_SPECIAL_CHARS,

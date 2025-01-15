@@ -1,11 +1,14 @@
 <?php
+        header("Access-Control-Allow-Origin: *"); // Zezwala na dostęp z każdego źródła
+        header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE"); // Dozwolone metody
+        header("Access-Control-Allow-Headers: Content-Type, Authorization"); // Dozwolone nagłówki
+
 class Strona
 {
     //pola (własności) klasy:
     protected $zawartosc;
     protected $tytul = "Modułowy serwis PHP";
-    protected $slowa_kluczowe = "narzędzia internetowe, php, formularz,
-galeria";
+    protected $slowa_kluczowe = "narzędzia internetowe, php, formularz, galeria";
     protected $przyciski = array(
         "Kontakt" => "index",
         "Galeria" => "galeria",
@@ -13,31 +16,32 @@ galeria";
         "O nas" => "onas"
     );
 
-    
-
-
     //interfejs klasy – metody modyfikujące fragmenty strony
     public function ustaw_zawartosc($nowa_zawartosc)
     {
         $this->zawartosc = $nowa_zawartosc;
     }
+
     function ustaw_tytul($nowy_tytul)
     {
         $this->tytul = $nowy_tytul;
     }
+
     public function ustaw_slowa_kluczowe($nowe_slowa)
     {
         $this->slowa_kluczowe = $nowe_slowa;
     }
+
     public function ustaw_przyciski($nowe_przyciski)
     {
         $this->przyciski = $nowe_przyciski;
     }
+
     public function ustaw_style($url)
     {
-        echo '<link rel="stylesheet" href="' . $url . '" type="text/css"
-    />';
+        echo '<link rel="stylesheet" href="' . $url . '" type="text/css" />';
     }
+
     //interfejs klasy – funkcje wyświetlające stronę
     public function wyswietl()
     {
@@ -45,22 +49,26 @@ galeria";
         $this->wyswietl_zawartosc();
         $this->wyswietl_stopke();
     }
+
     public function wyswietl_tytul()
     {
         echo "<title>$this->tytul</title>";
     }
+
     public function wyswietl_slowa_kluczowe()
     {
-        echo "<meta name=\"keywords\" contents=\"$this-
-    >slowa_kluczowe\">";
+        echo "<meta name=\"keywords\" content=\"$this->slowa_kluczowe\">";
     }
-    public function wyswietl_menu() {
+
+    public function wyswietl_menu()
+    {
         echo "<div id='nav'>";
-        foreach($this->przyciski as $nazwa => $id){
-        echo " <button id='$id' class='navbtn'> $nazwa </button>";
+        foreach ($this->przyciski as $nazwa => $id) {
+            echo " <button id='$id' class='navbtn'> $nazwa </button>";
         }
         echo "</div>";
-        }
+    }
+
     public function wyswietl_naglowek()
     {
 ?>
@@ -69,14 +77,23 @@ galeria";
 
         <head>
             <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-
-    scale=1.0">
-    <?php
-        $this->ustaw_style('css/style.css');
-        echo "<title>" . $this->tytul . "</title></head><body>";
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <?php
+            $this->ustaw_style('css/style.css');
+            $this->wyswietl_tytul();
+            ?>
+        </head>
+
+        <body>
+<?php
     }
+
     public function wyswietl_zawartosc()
     {
+        header("Access-Control-Allow-Origin: *"); // Zezwala na dostęp z każdego źródła
+        header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE"); // Dozwolone metody
+        header("Access-Control-Allow-Headers: Content-Type, Authorization"); // Dozwolone nagłówki
+
         echo "<div id='tresc'>";
         echo "<div id='nag'>";
         echo '<img src="zdjecia/foto.jpg" alt="foto" style="width:100%; height: 200px;"/></div>';
@@ -87,9 +104,12 @@ galeria";
         echo "<h1>" . $this->tytul . "</h1>";
         echo $this->zawartosc . "</div>";
     }
-    public function wyswietl_stopke() {
+
+    public function wyswietl_stopke()
+    {
         echo '<div id="stopka"> &copy; BP </div>';
         echo "<script src='js/skrypty.js'></script>";
         echo '</body></html>';
-        }
+    }
 }
+?>

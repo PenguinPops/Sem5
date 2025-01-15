@@ -54,7 +54,6 @@ class Pracownik : Osoba {
     }
 
 
-
     func lataPracy() -> Int {
         return 2024 - rokZatrudnienia;
     }

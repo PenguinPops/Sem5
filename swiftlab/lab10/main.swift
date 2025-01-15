@@ -159,6 +159,7 @@ func wczytajTablice(_ wielkosc: Int) -> [Double] {
 
 func wyswietlTablice(_ tablica: [Double]) {
     print("Tablica: ", terminator: "");
+    
     print(tablica);
 }
 
